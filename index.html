@@ -25,7 +25,7 @@ body{font-family:'Sarabun','Segoe UI',sans-serif;background:var(--bg);color:var(
 .wn{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--fresh));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:800}
 .wt{flex:1}.wt h2{font-size:17px;font-weight:700}.wt p{font-size:12px;color:var(--mid)}
 .wd{padding:3px 10px;border-radius:100px;background:rgba(92,192,201,.09);font-size:11px;color:var(--teal);font-weight:600}
-.st{display:flex;gap:6px;overflow-x:auto;margin-bottom:16px;scrollbar-width:none}.st::-webkit-scrollbar{display:none}
+.st{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
 .sb{padding:7px 16px;border-radius:100px;border:1.5px solid rgba(168,203,208,.6);background:#fff;color:var(--mid);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s}
 .sb.a{background:var(--teal);color:#fff;border-color:var(--teal)}
 .cd{background:#fff;border-radius:14px;padding:20px 24px;border:1px solid rgba(168,203,208,.4);margin-bottom:16px}
@@ -109,7 +109,7 @@ function R(){
     else h+=rC();
   } else if(t.hc===10){
     var sc10=(t.st||[]).map((s,i)=>({t:s,c:['🔩','📐','🌡️','🔬','✅'][i]||'📖'}));
-    h+=`<div class="st">${sc10.map((s,i)=>`<button class="sb ${i===as?'a':''}" onclick="S(${i})">${s.c} ${s.t}</button>`).join('')}</div>`;
+    h+=`<div class="st">${sc10.map((s,i)=>`<button class="sb ${i===as?'a':''}" onclick="S(${i})">${i+1}. ${s.c} ${s.t}</button>`).join('')}</div>`;
     h+=rFS(as);
   } else {
     h+=`<div class="cd"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--fresh);margin-bottom:10px">หัวข้อย่อย</div>`;
@@ -653,10 +653,4 @@ function mnDraw(){
   s+='<text x="'+lx+'" y="'+(wT-19)+'" text-anchor="middle" font-size="9" fill="var(--mid)">r='+mn.rL+'cm</text>';
   s+='<text x="'+rx+'" y="'+(wT-8)+'" text-anchor="middle" font-size="11" fill="#0A6C74" font-weight="700">R</text>';
   s+='<text x="'+rx+'" y="'+(wT-19)+'" text-anchor="middle" font-size="9" fill="var(--mid)">r='+mn.rR+'cm</text>';
-  s+='<text x="'+cx+'" y="'+(bot+22)+'" text-anchor="middle" font-size="10" fill="#3B82F6" font-weight="600">น้ำ (ρ=1000 kg/m³)</text>';
-  if(st>=2){var ar=mn.side==='L'?lx:rx;s+='<text x="'+ar+'" y="'+(wT-30)+'" text-anchor="middle" font-size="14">⬇️</text>';}
-  s+='</svg>';return s;
-}
-
-R();
-</script></body></html>
+  s+='<text x="'+cx+'" y="'+(bot+22)+'" text-anchor="middle" font-size="10" fill="#3B82F6" 
